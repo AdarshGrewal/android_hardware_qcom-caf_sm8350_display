@@ -1263,7 +1263,7 @@ void HWDeviceDRM::SetupAtomic(Fence::ScopedRef &scoped_ref, HWLayers *hw_layers,
 #ifdef UDFPS_ZPOS
           uint32_t z_order = pipe_info->z_order;
           if (layer.flags.fod_pressed) {
-            z_order |= FOD_PRESSED_LAYER_ZORDER;
+            z_order |= 0x20000000u;
           }
           drm_atomic_intf_->Perform(DRMOps::PLANE_SET_ZORDER, pipe_id, z_order);
 #else
